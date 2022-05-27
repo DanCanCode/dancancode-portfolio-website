@@ -1,11 +1,13 @@
 import React from "react";
-import { Box, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import { Flex, Text } from "@chakra-ui/react";
 
 const Navbar = () => {
   return (
-    <Box margin={0} backgroundColor="#ff00ff">
-      <Text>Nav</Text>
-    </Box>
+    <Flex backgroundColor="#000000">
+      <Text color="#ffffff">Hello</Text>
+      <Link to="/projects">Projects</Link>
+    </Flex>
   );
 };
 
