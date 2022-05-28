@@ -14,43 +14,56 @@ import {
   DrawerCloseButton,
   useDisclosure,
   Icon,
+  Button,
 } from "@chakra-ui/react";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { FiMenu } from "react-icons/fi";
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Flex
+      paddingY={5}
+      paddingX={10}
       as="nav"
-      paddingY={15}
-      paddingX={30}
-      backgroundColor="rgba(0, 0, 0, 0.1)"
-      flexDirection="row"
-      justifyContent="space-between"
       alignItems="center"
+      justifyContent="space-between"
+      backgroundColor="rgba(0, 0, 0, 0.2)"
     >
-      <Text margin={0} fontWeight="bold" fontSize={28}>
+      <Text fontSize={32} fontWeight="bold">
         Daniel Espinal
       </Text>
-      <Box
-        as="button"
-        borderWidth={0}
-        backgroundColor="rgba(255, 255, 255, 0)"
-        color="#ffffff"
-        padding={0}
-        _hover={{
-          color: "#808080",
+
+      <Button
+        onClick={onOpen}
+        colorScheme="blackAlpha"
+        variant="ghost"
+        minH={12}
+        _active={{
+          transform: "scale(0.9)",
         }}
       >
-        <Icon
-          as={GiHamburgerMenu}
-          boxSize={36}
-          _active={{
-            transform: "scale(0.9)",
-          }}
-        />
-      </Box>
+        <Icon as={FiMenu} color="#ffffff" boxSize={10} />
+      </Button>
+
+      <Drawer onClose={onClose} placement="right" isOpen={isOpen} size="sm">
+        <DrawerOverlay />
+        <DrawerContent backgroundColor="#808080">
+          <DrawerCloseButton />
+          <DrawerHeader>{`Home drawer contents`}</DrawerHeader>
+          <DrawerBody>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Consequat nisl vel pretium lectus quam id. Semper quis lectus
+              nulla at volutpat diam ut venenatis. Dolor morbi non arcu risus
+              quis varius quam quisque. Massa ultricies mi quis hendrerit dolor
+              magna eget est lorem. Erat imperdiet sed euismod nisi porta.
+              Lectus vestibulum mattis ullamcorper velit.
+            </p>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
     </Flex>
   );
 };
