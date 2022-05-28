@@ -1,13 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Flex, Text } from "@chakra-ui/react";
+import { Link as ReactLink } from "react-router-dom";
+import { Box, Text, Link } from "@chakra-ui/react";
 
 const Navbar = () => {
   return (
-    <Flex backgroundColor="#000000">
-      <Text color="#ffffff">Hello</Text>
-      <Link to="/projects">Projects</Link>
-    </Flex>
+    <Box as="nav" width="100%" backgroundColor="#000000">
+      <Text margin={0} color="#ffffff">
+        Hello
+      </Text>
+      <Link color="#ffffff" as={ReactLink} to="/projects">
+        Projects
+      </Link>
+    </Box>
   );
 };
 
