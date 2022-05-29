@@ -17,6 +17,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { FiMenu } from "react-icons/fi";
+import { FaTelegramPlane } from "react-icons/fa";
 import { IoPersonSharp, IoHomeSharp } from "react-icons/io5";
 import { IoIosConstruct } from "react-icons/io";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
@@ -112,22 +113,49 @@ const Navbar = () => {
                   Projects
                 </Text>
               </Link>
+
+              <Link
+                as={ReactLink}
+                to="/contact"
+                onClick={onClose}
+                display="flex"
+                alignItems="center"
+                marginY={5}
+              >
+                <Icon
+                  as={FaTelegramPlane}
+                  color="#ffffff"
+                  marginRight={2}
+                  boxSize={6}
+                />
+                <Text fontWeight="bold" fontSize={24}>
+                  Contact
+                </Text>
+              </Link>
             </Flex>
           </DrawerBody>
 
-          <DrawerFooter borderTopWidth="1px">
-            <Flex alignItems="center" justifyContent="center">
-              <Link
-                href="https://www.linkedin.com/in/danieleespinal/"
-                isExternal
-              >
-                <Icon as={BsLinkedin} color="#ffffff" />
-              </Link>
+          <DrawerFooter
+            borderTopWidth="1px"
+            borderColor="#c9c9c9"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Link
+              href="https://www.linkedin.com/in/danieleespinal/"
+              isExternal
+              marginRight={2}
+            >
+              <Icon as={BsLinkedin} color="#c9c9c9" boxSize={6} />
+            </Link>
 
-              <Link href="https://github.com/DanCanCode" isExternal>
-                <Icon as={BsGithub} color="#ffffff" />
-              </Link>
-            </Flex>
+            <Link
+              href="https://github.com/DanCanCode"
+              isExternal
+              marginLeft={2}
+            >
+              <Icon as={BsGithub} color="#c9c9c9" boxSize={6} />
+            </Link>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
